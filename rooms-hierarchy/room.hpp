@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "team.hpp"
+#include "../team.hpp"
 
 class Room {
 public:

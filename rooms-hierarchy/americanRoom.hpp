@@ -8,7 +8,8 @@
 
 class AmericanRoom: public Room {
 public:
-  AmericanRoom(const std::vector<std::string> &playersNames, std::string referee, unsigned int classroom);
+  AmericanRoom(std::vector<std::string> &playersNames,
+      std::vector<std::pair<std::string, std::string>> &teammates, std::string referee, unsigned int classroom);
 
 private:
   unsigned int PLAYERS_COUNT = 4;

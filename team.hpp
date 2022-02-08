@@ -27,7 +27,8 @@ private:
   TeamPosition teamPosition_;
   TeamType teamType_;
 
-  friend void assignPlayersToTeams(std::vector<std::string> playersNames, std::vector<Team> &teams);
+  friend void assignPlayersToTeams(std::vector<std::string> &playersNames,
+  std::vector<std::pair<std::string, std::string>> &teammates, std::vector<Team> &teams);
 };
 
 std::ostream &operator<<(std::ostream &out, const Team &team);

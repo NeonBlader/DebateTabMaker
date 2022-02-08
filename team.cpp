@@ -26,8 +26,8 @@ Team::Team(TeamPosition teamPosition, TeamType teamType):
 std::ostream &operator<<(std::ostream &out, const Team &team)
 {
   out << positionStrings[team.getTeamPosition()] << ":\n";
-  for (auto names = team.getPlayersNames(); const auto &iter: names) {
-    out << iter << '\n';
+  for (auto names = team.getPlayersNames(); const auto &name: names) {
+    out << name << '\n';
   }
   return out;
 }

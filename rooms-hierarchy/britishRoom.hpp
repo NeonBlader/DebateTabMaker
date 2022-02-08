@@ -5,7 +5,8 @@
 
 class BritishRoom: public Room {
 public:
-  BritishRoom(const std::vector<std::string> &playersNames, std::string referee, unsigned int classroom);
+  BritishRoom(std::vector<std::string> &playersNames,
+      std::vector<std::pair<std::string, std::string>> &teammates, std::string referee, unsigned int classroom);
 
 private:
   const unsigned int PLAYERS_COUNT = 8;
