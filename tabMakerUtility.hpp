@@ -13,6 +13,8 @@ class Room;
 class Team;
 class RoomFabric;
 
+using CellPosition = std::pair<unsigned int, unsigned int>;
+
 const unsigned int MINIMAL_PLAYERS_COUNT = 4;
 const unsigned int BRITISH_ROOM_PLAYERS_COUNT = 8;
 const unsigned int BRITISH_ROOM_WITH_IRON_PLAYERS_COUNT = 7;
