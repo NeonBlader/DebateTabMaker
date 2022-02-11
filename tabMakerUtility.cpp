@@ -34,7 +34,7 @@ void assignPlayersToTeams(std::vector<std::string> &playersNames,
       } else {
         std::random_device rd;
         std::mt19937 mt(rd());
-        if ((mt() % 2) == 0) {
+        if (((mt() % 2) == 0) || (teammates.empty())) {
           for (auto &name: team.playersNames_) {
             name = getRandomElementWithErase(playersNames);
           }
@@ -156,4 +156,42 @@ void parseNamesFromXLSX(const std::string &filePath, std::vector<std::string> &p
     }
     startRow++;
   }
+}
+
+CellPosition printRoomsToExcel(const std::string &filePath, const std::vector<std::unique_ptr<Room>> &rooms,
+    CellPosition startCellPosition)
+{
+  OpenXLSX::XLDocument doc;
+  doc.create(filePath);
+  doc.close();
+  for (std::size_t i = 0; i < rooms.size(); ++i) {
+    if (i == 0) {
+      startCellPosition = rooms[i]->printToExcel(filePath, startCellPosition);
+      std::cout << startCellPosition.first << ' ' << startCellPosition.second;
+    } else if (i % COUNT_OF_ROOMS_PRINTED_IN_LINE != 0) {
+      if (rooms[i - 1]->getCountOfTeamsInRoom() == 4) {
+        startCellPosition.first -=11;
+      } else {
+        startCellPosition.first -= 6;
+      }
+      startCellPosition.second += 2;
+      startCellPosition = rooms[i]->printToExcel(filePath, startCellPosition);
+    } else {
+      startCellPosition.first += 3;
+      startCellPosition.second -= 6;
+      startCellPosition = rooms[i]->printToExcel(filePath, startCellPosition);
+    }
+  }
+  return startCellPosition;
+}
+
+void createTab(const std::string &namesFilePath, const std::string &outputFilePath,
+    const std::vector<unsigned int> &classrooms)
+{
+  std::vector<std::string> playersNames;
+  std::vector<std::pair<std::string, std::string>> teammatesNames;
+  std::vector<std::string> refereeNames;
+  parseNamesFromXLSX(namesFilePath, playersNames, teammatesNames, refereeNames);
+  auto rooms = createRooms(playersNames, teammatesNames, refereeNames, classrooms);
+  printRoomsToExcel(outputFilePath, rooms);
 }

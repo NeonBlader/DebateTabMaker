@@ -21,6 +21,9 @@ const unsigned int BRITISH_ROOM_WITH_IRON_PLAYERS_COUNT = 7;
 const unsigned int AMERICAN_ROOM_PLAYERS_COUNT = 4;
 const unsigned int SCHOOL_ROOM_PLAYERS_COUNT = 6;
 const unsigned int MIXED_FORMAT_ROOM_PLAYERS_COUNT = 5;
+const unsigned int BRITISH_ROOM_TEAMS_COUNT = 4;
+
+const unsigned int COUNT_OF_ROOMS_PRINTED_IN_LINE = 2;
 
 const std::string REFEREE_DESIGNATION = "Судья";
 const std::string PLAYER_DESIGNATION = "Игрок";
@@ -56,6 +59,10 @@ std::vector<std::unique_ptr<RoomFabric>> createRoomFabrics(std::size_t playersCo
 std::vector<std::unique_ptr<Room>> createRooms(std::vector<std::string> playersNames,
     std::vector<std::pair<std::string, std::string>> teammatesNames, std::vector<std::string> referees = {},
     std::vector<unsigned int> classrooms = {});
+CellPosition printRoomsToExcel(const std::string &filePath, const std::vector<std::unique_ptr<Room>> &rooms,
+    CellPosition startCellPosition = {1, 1});
+void createTab(const std::string &namesFilePath, const std::string &outputFilePath,
+    const std::vector<unsigned int> &classrooms = {});
 
 template<typename T>
 T getRandomElementWithErase(std::vector<T> &elements)
