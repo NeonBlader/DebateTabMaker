@@ -4,9 +4,9 @@
 #include <vector>
 #include <string>
 
-#include "room.hpp"
+#include "twoTeamRoom.hpp"
 
-class AmericanRoom: public Room {
+class AmericanRoom: public TwoTeamRoom {
 public:
   AmericanRoom(std::vector<std::string> &playersNames,
       std::vector<std::pair<std::string, std::string>> &teammates, std::string referee, unsigned int classroom);

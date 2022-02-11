@@ -4,10 +4,10 @@
 #include <string>
 #include <vector>
 
-#include "room.hpp"
+#include "fourTeamRoom.hpp"
 #include "../tabMakerUtility.hpp"
 
-class BritishWithIronRoom: public Room {
+class BritishWithIronRoom: public FourTeamRoom {
 public:
   BritishWithIronRoom(std::vector<std::string> &playersNames,
       std::vector<std::pair<std::string, std::string>> &teammates, std::string referee, unsigned int classroom);

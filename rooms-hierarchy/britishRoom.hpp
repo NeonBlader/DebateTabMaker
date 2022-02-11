@@ -1,9 +1,9 @@
 #ifndef DEBATETABMAKER_BRITISHROOM_HPP
 #define DEBATETABMAKER_BRITISHROOM_HPP
 
-#include "room.hpp"
+#include "fourTeamRoom.hpp"
 
-class BritishRoom: public Room {
+class BritishRoom: public FourTeamRoom {
 public:
   BritishRoom(std::vector<std::string> &playersNames,
       std::vector<std::pair<std::string, std::string>> &teammates, std::string referee, unsigned int classroom);

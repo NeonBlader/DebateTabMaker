@@ -4,9 +4,9 @@
 
 BritishWithIronRoom::BritishWithIronRoom(std::vector<std::string> &playersNames,
     std::vector<std::pair<std::string, std::string>> &teammates, std::string referee, unsigned int classroom):
-    Room(std::move(referee), classroom)
+    FourTeamRoom(std::move(referee), classroom)
 {
-  if (playersNames.size() < PLAYERS_COUNT) {
+  if ((playersNames.size() + teammates.size() * 2) < PLAYERS_COUNT) {
     throw std::invalid_argument("Count of available players for british room with ironman must be at least 7");
   }
   teams_ = {Team(PROP1, DUO), Team(OP1, DUO),

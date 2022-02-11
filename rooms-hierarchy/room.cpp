@@ -19,6 +19,15 @@ unsigned int Room::getClassroom() const {
   return classroom_;
 }
 
+CellPosition Room::printClassroomAndRefereeToExcel(OpenXLSX::XLWorksheet &outputWKS,
+    CellPosition startCellPosition) const {
+  outputWKS.cell(startCellPosition.first, startCellPosition.second).value() = "Аудитория:";
+  outputWKS.cell(startCellPosition.first, startCellPosition.second + 1).value() = classroom_;
+  outputWKS.cell(startCellPosition.first + 1, startCellPosition.second).value() = "Судья: ";
+  outputWKS.cell(startCellPosition.first + 1, startCellPosition.second + 1).value() = referee_;
+  return {startCellPosition.first + 2, startCellPosition.second};
+}
+
 std::ostream &operator<<(std::ostream &out, const Room &room)
 {
   out << "Classroom: " << room.getClassroom() << '\n';

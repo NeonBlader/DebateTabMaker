@@ -4,10 +4,10 @@
 #include <string>
 #include <vector>
 
-#include "room.hpp"
+#include "twoTeamRoom.hpp"
 #include "../tabMakerUtility.hpp"
 
-class MixedFormatRoom: public Room{
+class MixedFormatRoom: public TwoTeamRoom{
 public:
   MixedFormatRoom(std::vector<std::string> &playersNames,
       std::vector<std::pair<std::string, std::string>> &teammates, std::string referee, unsigned int classroom);

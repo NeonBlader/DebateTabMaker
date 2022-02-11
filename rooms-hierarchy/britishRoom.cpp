@@ -6,7 +6,7 @@
 
 BritishRoom::BritishRoom(std::vector<std::string> &playersNames,
     std::vector<std::pair<std::string, std::string>> &teammates, std::string referee, unsigned int classroom):
-    Room(std::move(referee), classroom)
+    FourTeamRoom(std::move(referee), classroom)
 {
   if (playersNames.size() + (teammates.size() * 2) < PLAYERS_COUNT) {
     throw std::invalid_argument("Count of available players for british room must be at least 8");
