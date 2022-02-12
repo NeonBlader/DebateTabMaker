@@ -36,7 +36,7 @@ As further arguments, you can pass an unlimited number of classroom numbers in w
 Also, classrooms can be omitted, in which case they will be marked as indefinite.  
 **However, if the audiences are passed and there are fewer than the number of rooms after the optimal distribution, then the distribution will fail!**
 
-As part of the current functionality, the program outputs information about the generated rooms to the output.xlsx file. For each room, a cell will be generated, shown below. They will be presented two in a row.
+As part of the current functionality, the program outputs information about the generated rooms to the FormedTab.xlsx file. For each room, a cell will be generated, shown below. They will be presented two in a row.
 
 | Аудитория   | Classroom number |             | 
 |-------------|------------------|-------------|
