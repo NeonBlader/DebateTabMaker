@@ -1,24 +1,8 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
 #include <string>
 
-#include "team.hpp"
-#include "rooms-hierarchy/britishRoom.hpp"
-#include "rooms-hierarchy/britishWithIronRoom.hpp"
-#include "rooms-hierarchy/americanRoom.hpp"
-#include "rooms-hierarchy/schoolRoom.hpp"
-#include "rooms-hierarchy/mixedFormatRoom.hpp"
 #include "tabMakerUtility.hpp"
-
-#include "rooms-fabric-hierarchy/roomFabric.hpp"
-#include "rooms-fabric-hierarchy/britishRoomFabric.hpp"
-#include "rooms-fabric-hierarchy/britishWithIronRoomFabric.hpp"
-#include "rooms-fabric-hierarchy/americanRoomFabric.hpp"
-#include "rooms-fabric-hierarchy/schoolRoomFabric.hpp"
-#include "rooms-fabric-hierarchy/mixedFormatRoomFabric.hpp"
-
-#include <OpenXLSX.hpp>
 
 int main(int argc, char *argv[])
 {
