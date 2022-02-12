@@ -51,3 +51,5 @@ As part of the current functionality, the program outputs information about the 
 | Second name |                  | Second name |
 
 Obviously, for rooms from two teams, one proposition team and one opposition team will be printed.
+
+**This project uses the OpenXLSX library, for a successful build you need to include it in your project!**
