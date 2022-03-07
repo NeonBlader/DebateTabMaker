@@ -29,6 +29,7 @@ CellPosition FourTeamRoom::printToExcel(std::string outputExcelFilePath, CellPos
     }
     switch (i) {
       case 0:
+        [[fallthrough]];
       case 2:
         startCell = {oldRow, startCell.second + 2};
         break;
