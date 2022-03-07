@@ -8,13 +8,15 @@ CellPosition TwoTeamRoom::printToExcel(std::string outputExcelFilePath, CellPosi
   startCellPosition.first++;
   outputWKS.cell(startCellPosition.first, startCellPosition.second).value() = "ПР:";
   outputWKS.cell(startCellPosition.first++, startCellPosition.second + 2).value() = "ОП:";
-  for (const auto &team: teams_) {
+  for (auto i = 0; i < teams_.size(); ++i) {
     unsigned int startRow = startCellPosition.first;
-    for (auto playersNames = team.getPlayersNames(); const auto &name: playersNames) {
+    for (auto playersNames = teams_[i].getPlayersNames(); const auto &name: playersNames) {
       outputWKS.cell(startCellPosition.first++, startCellPosition.second).value() = name;
     }
     startCellPosition.first = startRow;
-    startCellPosition.second += 2;
+    if (i != 1) {
+      startCellPosition.second += 2;
+    }
   }
   outputDoc.save();
   return startCellPosition;

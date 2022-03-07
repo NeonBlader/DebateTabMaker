@@ -7,6 +7,7 @@
 #include "rooms-fabric-hierarchy/americanRoomFabric.hpp"
 #include "rooms-fabric-hierarchy/schoolRoomFabric.hpp"
 #include "rooms-fabric-hierarchy/mixedFormatRoomFabric.hpp"
+#include <fstream>
 
 void assignPlayersToTeams(std::vector<std::string> &playersNames,
     std::vector<std::pair<std::string, std::string>> &teammates, std::vector<Team> &teams) {
@@ -172,7 +173,7 @@ CellPosition printRoomsToExcel(const std::string &filePath, const std::vector<st
       if (rooms[i - 1]->getCountOfTeamsInRoom() == 4) {
         startCellPosition.first -=11;
       } else {
-        startCellPosition.first -= 6;
+        startCellPosition.first -= 4;
       }
       startCellPosition.second += 2;
       startCellPosition = rooms[i]->printToExcel(filePath, startCellPosition);
@@ -192,6 +193,13 @@ void createTab(const std::string &namesFilePath, const std::string &outputFilePa
   std::vector<std::pair<std::string, std::string>> teammatesNames;
   std::vector<std::string> refereeNames;
   parseNamesFromXLSX(namesFilePath, playersNames, teammatesNames, refereeNames);
+  std::ifstream in("config.txt");
+  std::string refereeMode;
+  in >> refereeMode;
+  if (refereeMode == "NO") {
+    refereeNames.resize(100);
+    std::for_each(refereeNames.begin(), refereeNames.end(), [](auto &current){current = "TBA";});
+  }
   auto rooms = createRooms(playersNames, teammatesNames, refereeNames, classrooms);
   printRoomsToExcel(outputFilePath, rooms);
 }
