@@ -18,14 +18,14 @@ Team::Team(TeamPosition teamPosition, TeamType teamType):
   teamPosition_(teamPosition),
   teamType_(teamType)
 {
-  for (int i = 0; i < teamType_; ++i) {
+  for (int i = 0; i < static_cast<int>(teamType_); ++i) {
     playersNames_.emplace_back("not_defined");
   }
 }
 
 std::ostream &operator<<(std::ostream &out, const Team &team)
 {
-  out << positionStrings[team.getTeamPosition()] << ":\n";
+  out << positionStrings[static_cast<uint8_t>(team.getTeamPosition())] << ":\n";
   for (auto names = team.getPlayersNames(); const auto &name: names) {
     out << name << '\n';
   }

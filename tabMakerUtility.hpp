@@ -30,8 +30,8 @@ const std::string PLAYER_DESIGNATION = "Игрок";
 const std::string IN_TEAM_DESIGNATION = "Да";
 const std::string NOT_IN_TEAM_DESIGNATION = "Нет";
 
-enum TeamPosition {
-  PROP,
+enum class TeamPosition: uint8_t {
+  PROP = 0,
   OP,
   PROP1,
   OP1,
@@ -39,7 +39,7 @@ enum TeamPosition {
   OP2
 };
 
-enum TeamType {
+enum class TeamType: uint8_t {
   IRON_MAN = 1,
   DUO,
   TRIPLE

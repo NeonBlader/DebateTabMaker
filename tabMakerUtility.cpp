@@ -13,7 +13,7 @@ void assignPlayersToTeams(std::vector<std::string> &playersNames,
     std::vector<std::pair<std::string, std::string>> &teammates, std::vector<Team> &teams) {
   unsigned int playersCount = 0;
   for (auto &iter: teams) {
-    playersCount += iter.getTeamType();
+    playersCount += static_cast<uint8_t>(iter.getTeamType());
   }
   if (playersNames.size() + (teammates.size() * 2) < playersCount) {
     throw std::invalid_argument("Available players names count must be at least equal to count of places in teams");
@@ -22,7 +22,7 @@ void assignPlayersToTeams(std::vector<std::string> &playersNames,
     throw std::logic_error("All teammates can't play with each other with current count of players");
   }
   for (auto &team: teams) {
-    if (team.getTeamType() != DUO) {
+    if (team.getTeamType() != TeamType::DUO) {
       for (auto &name: team.playersNames_) {
         name = getRandomElementWithErase(playersNames);
       }

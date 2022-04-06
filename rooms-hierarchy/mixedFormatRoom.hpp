@@ -15,7 +15,7 @@ public:
 
 private:
   static constexpr uint8_t PLAYERS_COUNT = 5;
-  inline static TeamPosition duoTeamPosition_ = OP;
+  inline static TeamPosition duoTeamPosition_ = TeamPosition::OP;
 };
 
 

@@ -9,16 +9,16 @@ MixedFormatRoom::MixedFormatRoom(std::vector<std::string> &playersNames,
   if ((playersNames.size() + teammates.size() * 2) < PLAYERS_COUNT) {
     throw std::invalid_argument("Count of available players for mixed format room must be at least 5");
   }
-  if (duoTeamPosition_ == PROP) {
-    teams_ = {Team(PROP, DUO), Team(OP, TRIPLE)};
+  if (duoTeamPosition_ == TeamPosition::PROP) {
+    teams_ = {Team(TeamPosition::PROP, TeamType::DUO), Team(TeamPosition::OP, TeamType::TRIPLE)};
   } else {
-    teams_ = {Team(PROP, TRIPLE), Team(OP, DUO)};
+    teams_ = {Team(TeamPosition::PROP, TeamType::TRIPLE), Team(TeamPosition::OP, TeamType::DUO)};
   }
   assignPlayersToTeams(playersNames, teammates, teams_);
 }
 
 void MixedFormatRoom::setDuoTeamsPosition(TeamPosition duoTeamPosition) {
-  if (duoTeamPosition > OP) {
+  if (duoTeamPosition > TeamPosition::OP) {
     throw std::invalid_argument("You can't set duo team position with team types for 4-way rooms");
   }
   duoTeamPosition_ = duoTeamPosition;

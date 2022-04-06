@@ -15,7 +15,7 @@ public:
 
 private:
   static constexpr uint8_t PLAYERS_COUNT = 7;
-  inline static TeamPosition ironPosition_ = PROP2;
+  inline static TeamPosition ironPosition_ = TeamPosition::PROP2;
 };
 
 
