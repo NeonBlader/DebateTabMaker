@@ -14,7 +14,7 @@ public:
   static void setDuoTeamsPosition(TeamPosition duoTeamPosition);
 
 private:
-  unsigned int PLAYERS_COUNT = 5;
+  static constexpr uint8_t PLAYERS_COUNT = 5;
   inline static TeamPosition duoTeamPosition_ = OP;
 };
 

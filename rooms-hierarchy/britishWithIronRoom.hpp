@@ -14,7 +14,7 @@ public:
   static void setIronPosition(TeamPosition ironPosition);
 
 private:
-  const unsigned int PLAYERS_COUNT = 7;
+  static constexpr uint8_t PLAYERS_COUNT = 7;
   inline static TeamPosition ironPosition_ = PROP2;
 };
 

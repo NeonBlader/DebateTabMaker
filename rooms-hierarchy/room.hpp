@@ -23,7 +23,7 @@ protected:
 
   std::vector<Team> teams_;
   std::string referee_;
-  unsigned int classroom_;
+  uint16_t classroom_;
 };
 
 std::ostream &operator<<(std::ostream &out, const Room &room);

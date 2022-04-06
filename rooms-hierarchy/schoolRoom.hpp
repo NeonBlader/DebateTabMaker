@@ -12,7 +12,7 @@ public:
      std::vector<std::pair<std::string, std::string>> &teammates, std::string referee, unsigned int classroom);
 
 public:
-  unsigned int PLAYERS_COUNT = 6;
+  static constexpr uint8_t PLAYERS_COUNT = 6;
 };
 
 

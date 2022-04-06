@@ -168,7 +168,6 @@ CellPosition printRoomsToExcel(const std::string &filePath, const std::vector<st
   for (std::size_t i = 0; i < rooms.size(); ++i) {
     if (i == 0) {
       startCellPosition = rooms[i]->printToExcel(filePath, startCellPosition);
-      std::cout << startCellPosition.first << ' ' << startCellPosition.second;
     } else if (i % COUNT_OF_ROOMS_PRINTED_IN_LINE != 0) {
       if (rooms[i - 1]->getCountOfTeamsInRoom() == 4) {
         startCellPosition.first -=11;

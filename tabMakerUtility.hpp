@@ -15,15 +15,15 @@ class RoomFabric;
 
 using CellPosition = std::pair<unsigned int, unsigned int>;
 
-const unsigned int MINIMAL_PLAYERS_COUNT = 4;
-const unsigned int BRITISH_ROOM_PLAYERS_COUNT = 8;
-const unsigned int BRITISH_ROOM_WITH_IRON_PLAYERS_COUNT = 7;
-const unsigned int AMERICAN_ROOM_PLAYERS_COUNT = 4;
-const unsigned int SCHOOL_ROOM_PLAYERS_COUNT = 6;
-const unsigned int MIXED_FORMAT_ROOM_PLAYERS_COUNT = 5;
-const unsigned int BRITISH_ROOM_TEAMS_COUNT = 4;
+constexpr uint8_t MINIMAL_PLAYERS_COUNT = 4;
+constexpr uint8_t BRITISH_ROOM_PLAYERS_COUNT = 8;
+constexpr uint8_t BRITISH_ROOM_WITH_IRON_PLAYERS_COUNT = 7;
+constexpr uint8_t AMERICAN_ROOM_PLAYERS_COUNT = 4;
+constexpr uint8_t SCHOOL_ROOM_PLAYERS_COUNT = 6;
+constexpr uint8_t MIXED_FORMAT_ROOM_PLAYERS_COUNT = 5;
+constexpr uint8_t BRITISH_ROOM_TEAMS_COUNT = 4;
 
-const unsigned int COUNT_OF_ROOMS_PRINTED_IN_LINE = 2;
+constexpr uint8_t COUNT_OF_ROOMS_PRINTED_IN_LINE = 2;
 
 const std::string REFEREE_DESIGNATION = "Судья";
 const std::string PLAYER_DESIGNATION = "Игрок";
